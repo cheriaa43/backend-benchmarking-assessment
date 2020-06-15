@@ -38,6 +38,7 @@ class TestAnagrams(unittest.TestCase):
             short_list = f.read().split()
         actual_dict = self.ana.find_anagrams(short_list)
         self.assertIsInstance(actual_dict, dict)
+        
         with open('tests/short_list.json') as f:
             expected_dict = json.loads(f.read())
         self.assertDictEqual(actual_dict, expected_dict)
@@ -48,7 +49,7 @@ class TestAnagrams(unittest.TestCase):
             short_list = f.read().split()
         self.run_find_anagrams(short_list, 0.030)
 
-    @unittest.skip("Remove this line once short test passes")
+    # @unittest.skip("Remove this line once short test passes")
     def test_long(self):
         """Check find_anagrams() with long word list."""
         with open("words/long.txt") as f:
